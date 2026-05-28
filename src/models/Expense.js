@@ -11,7 +11,14 @@ const expenseShema = new mongoose.Shema (
       amount:{
         type: Number,
         required: [true, 'El monto es obligatorio'],
-        min: [0.01, 'El monto debe ser superior a 0']
+        min: [0.01, 'El monto debe ser superior a 0'],
+        max:[999999, 'El monto debe de ser inferior a 999999']
+      },
+      type:{
+        type: String,
+        required: [true, 'Debes inidicar en que moneda se guarda'],
+        maxlength: [20, 'La moneda no puede tener más de 20 caracteres'],
+        default: 'dolar'
       },
       category:{
         type: [String],
