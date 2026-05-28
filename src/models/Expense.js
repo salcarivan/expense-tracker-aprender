@@ -1,6 +1,6 @@
-const mongoose =require ('moongose');
+const mongoose = require('mongoose');
 
-const expenseShema = new mongoose.Shema (
+const expenseSchema = new mongoose.Schema(
     {
       title:{
         type:String,
@@ -20,14 +20,11 @@ const expenseShema = new mongoose.Shema (
         maxlength: [20, 'La moneda no puede tener más de 20 caracteres'],
         default: 'dolar'
       },
-      category:{
-        type: [String],
+      category: {
+        type: String,
         required: [true, 'La categoría es obligatoria'],
-        enum:{
-            values: ['comida', 'transporte', 'ocio' , 'otros'],
-            default: 'otros',
-            message: 'Categoría inválida',
-        }
+        enum: ['comida', 'transporte', 'ocio', 'otros'],
+        default: 'otros'
       },
       date:{
         type: Date,
@@ -44,6 +41,6 @@ const expenseShema = new mongoose.Shema (
         timestamps: true
     }
 );
-const Expense = mongoose.model('Expense', expenseShema);
+const Expense = mongoose.model('Expense', expenseSchema);
 
-module.exprorts = Expense;
+module.exports = Expense;

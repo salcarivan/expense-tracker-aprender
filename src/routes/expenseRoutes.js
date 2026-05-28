@@ -1,4 +1,4 @@
-const express = require ('express');
+const express = require('express');
 const router = express.Router();
 
 const {
@@ -15,4 +15,4 @@ router.post('/', createExpense);
 router.put('/:id', updateExpense);
 router.delete('/:id', deleteExpense);
 
-module.exports=router;
+module.exports = router;

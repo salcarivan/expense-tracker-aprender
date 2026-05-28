@@ -27,7 +27,7 @@ const getExpenseById = async (req, res, next) => {
         }
 
         res.status(200).json({
-            success: false,
+            success: true,
             data: expense
         });
     } catch (error) {
@@ -87,6 +87,8 @@ const deleteExpense = async (req, res, next) => {
                 message: 'Gasto no encontrado'
             });
         }
+
+        await expense.remove();
 
         res.status(200).json({
             success: true,
